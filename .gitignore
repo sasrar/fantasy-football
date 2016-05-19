@@ -7,3 +7,4 @@ tmp
 .idea
 app/jspm_packages
 node_modules/.bin/live-server
+app/config.json
