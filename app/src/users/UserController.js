@@ -11,7 +11,7 @@
    * @param avatarsService
    * @constructor
    */
-   UserController.$inject = ['userService', '$mdSidenav', '$mdBottomSheet', '$timeout', '$log'];
+  UserController.$inject = ['userService', '$mdSidenav', '$mdBottomSheet', '$timeout', '$log'];
   function UserController( userService, $mdSidenav, $mdBottomSheet, $timeout, $log ) {
     var self = this;
 
