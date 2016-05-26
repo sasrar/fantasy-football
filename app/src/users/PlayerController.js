@@ -2,7 +2,7 @@
 
   angular
        .module('players')
-       .controller('UserController', UserController);
+       .controller('PlayerController', PlayerController);
 
   /**
    * Main Controller for the Angular Material Starter App
@@ -11,8 +11,8 @@
    * @param avatarsService
    * @constructor
    */
-  UserController.$inject = ['playersService', '$mdSidenav', '$mdBottomSheet', '$timeout', '$log'];
-  function UserController( playersService, $mdSidenav, $mdBottomSheet, $timeout, $log ) {
+  PlayerController.$inject = ['playersService', '$mdSidenav', '$mdBottomSheet', '$timeout', '$log'];
+  function PlayerController( playersService, $mdSidenav, $mdBottomSheet, $timeout, $log ) {
     var self = this;
 
     self.selected     = null;
