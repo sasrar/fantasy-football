@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('players')
-         .service('playersService', PlayersService);
+         .service('playerService', PlayerService);
 
   /**
    * Users DataService
@@ -12,8 +12,8 @@
    * @returns {{loadAll: Function}}
    * @constructor
    */
-  PlayersService.$inject = ['$q', '$http'];
-  function PlayersService($q, $http){
+  PlayerService.$inject = ['$q', '$http'];
+  function PlayerService($q, $http){
     var service = {
       getApiKey: getApiKey,
       loadAllPlayers: loadAllPlayers

@@ -11,8 +11,8 @@
    * @param avatarsService
    * @constructor
    */
-  PlayerController.$inject = ['playersService', '$mdSidenav', '$mdBottomSheet', '$timeout', '$log'];
-  function PlayerController( playersService, $mdSidenav, $mdBottomSheet, $timeout, $log ) {
+  PlayerController.$inject = ['playerService', '$mdSidenav', '$mdBottomSheet', '$timeout', '$log'];
+  function PlayerController( playerService, $mdSidenav, $mdBottomSheet, $timeout, $log ) {
     var self = this;
 
     self.selected     = null;
@@ -23,7 +23,7 @@
 
     // Load all registered users
 
-    playersService
+    playerService
           .loadAllPlayers()
           .then( function( users ) {
             self.users    = [].concat(users.Players);
