@@ -1,7 +1,7 @@
 (function(){
 
   angular
-       .module('users')
+       .module('players')
        .controller('UserController', UserController);
 
   /**
@@ -11,8 +11,8 @@
    * @param avatarsService
    * @constructor
    */
-  UserController.$inject = ['userService', '$mdSidenav', '$mdBottomSheet', '$timeout', '$log'];
-  function UserController( userService, $mdSidenav, $mdBottomSheet, $timeout, $log ) {
+  UserController.$inject = ['playersService', '$mdSidenav', '$mdBottomSheet', '$timeout', '$log'];
+  function UserController( playersService, $mdSidenav, $mdBottomSheet, $timeout, $log ) {
     var self = this;
 
     self.selected     = null;
@@ -23,8 +23,8 @@
 
     // Load all registered users
 
-    userService
-          .loadAllUsers()
+    playersService
+          .loadAllPlayers()
           .then( function( users ) {
             self.users    = [].concat(users.Players);
             self.selected = users.Players[0];

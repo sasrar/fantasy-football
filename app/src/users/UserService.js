@@ -1,8 +1,8 @@
 (function(){
   'use strict';
 
-  angular.module('users')
-         .service('userService', UserService);
+  angular.module('players')
+         .service('playersService', PlayersService);
 
   /**
    * Users DataService
@@ -12,11 +12,11 @@
    * @returns {{loadAll: Function}}
    * @constructor
    */
-  UserService.$inject = ['$q', '$http'];
-  function UserService($q, $http){
+  PlayersService.$inject = ['$q', '$http'];
+  function PlayersService($q, $http){
     var service = {
       getApiKey: getApiKey,
-      loadAllUsers: loadAllUsers
+      loadAllPlayers: loadAllPlayers
     };
 
     return service;
@@ -31,7 +31,7 @@
       return promise;
     }
 
-    function loadAllUsers() {
+    function loadAllPlayers() {
       var promise = getApiKey()
           .then( function( data ) {
             self.key = data.apiKey;
