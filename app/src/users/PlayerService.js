@@ -36,6 +36,8 @@
           .then( function( data ) {
             self.key = data.apiKey;
 
+            // Use new fantasy football api to get player news.
+            // Currently not able to use Post request using header. Browser issue.
             return $http.get('http://www.fantasyfootballnerd.com/service/players/json/'+ key +'/WR/').then(function(response) {
               console.log(response);
               return response.data;

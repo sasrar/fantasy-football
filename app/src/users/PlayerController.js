@@ -21,8 +21,7 @@
     self.toggleList   = toggleUsersList;
     self.makeContact  = makeContact;
 
-    // Load all registered users
-
+    // TODO: Load a few players. Then provide endless scrolling/dynamic player loading.
     playerService
           .loadAllPlayers()
           .then( function( users ) {
