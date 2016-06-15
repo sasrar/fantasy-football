@@ -36,13 +36,12 @@
           .then( function( data ) {
             self.key = data.apiKey;
 
-            // Use new fantasy football api to get player news.
-            // Currently not able to use Post request using header. Browser issue.
             //return $http.get('https://api.fantasydata.net/nfl/v2/JSON/FantasyPlayers').then(function(response) {
-            return $http.get('http://localhost:4567/FantasyPlayers').then(function(response) {
-              console.log(response);
-              return response.data;
-            });
+            return $http.get('http://localhost:4567/FantasyPlayers', {headers: {'Ocp-Apim-Subscription-Key': key}})
+              .then(function(response) {
+                console.log(response);
+                return response.data;
+              });
           });
 
       return promise;
