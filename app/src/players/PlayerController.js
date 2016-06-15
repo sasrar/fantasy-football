@@ -25,8 +25,8 @@
     playerService
           .loadAllPlayers()
           .then( function( users ) {
-            self.users    = [].concat(users.Players);
-            self.selected = users.Players[0];
+            self.users    = [].concat(users);
+            self.selected = users[0];
           });
 
     // *********************************

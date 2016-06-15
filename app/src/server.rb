@@ -1,6 +1,8 @@
 
   require 'sinatra'
   require 'json'
+  require 'net/http'
+  require 'uri'
 
   use Rack::Logger
 
@@ -18,7 +20,17 @@
   end
 
   get '/FantasyPlayers' do
-    { result: "Monster University" }.to_json
+    key = env['HTTP_OCP_APIM_SUBSCRIPTION_KEY']
+    url = URI.parse('https://api.fantasydata.net/nfl/v2/JSON/FantasyPlayers')
+    http = Net::HTTP.new(url.host, url.port)
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    http.use_ssl = true
+
+    request = Net::HTTP::Get.new(url.request_uri)
+    request.initialize_http_header({"Ocp-Apim-Subscription-Key" => key})
+
+    response = http.request(request)
+    response.body
   end
 
   post '/movie' do
