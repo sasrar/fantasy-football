@@ -13,11 +13,11 @@
 
   set :protection, false
 
-  options '/movie' do
+  options '/FantasyPlayers' do
   	200
   end
 
-  get '/movie' do
+  get '/FantasyPlayers' do
     { result: "Monster University" }.to_json
   end
 

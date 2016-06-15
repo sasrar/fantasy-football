@@ -5,8 +5,8 @@
          .service('playerService', PlayerService);
 
   /**
-   * Users DataService
-   * Uses embedded, hard-coded data model; acts asynchronously to simulate
+   * Players DataService
+   * Uses embedded, uses fantasyfootballnerd; acts asynchronously to simulate
    * remote data service call(s).
    *
    * @returns {{loadAll: Function}}
@@ -38,7 +38,8 @@
 
             // Use new fantasy football api to get player news.
             // Currently not able to use Post request using header. Browser issue.
-            return $http.get('http://www.fantasyfootballnerd.com/service/players/json/'+ key +'/WR/').then(function(response) {
+            //return $http.get('https://api.fantasydata.net/nfl/v2/JSON/FantasyPlayers').then(function(response) {
+            return $http.get('http://localhost:4567/FantasyPlayers').then(function(response) {
               console.log(response);
               return response.data;
             });
