@@ -35,14 +35,16 @@
     <div flex layout="row">
 
         <md-sidenav  ng-click="pl.toggleList()" md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2" >
-          <md-list>
-            <md-list-item ng-repeat="it in pl.users">
-                <md-button ng-click="pl.selectUser(it)" ng-class="{'selected' : it === pl.selected }">
-                  <md-icon md-svg-icon="svg-1" class="avatar"></md-icon>
-                  {{it.Name}}
-                </md-button>
-            </md-list-item>
-          </md-list>
+          <md-virtual-repeat-container id="vertical-container">
+            <md-list>
+              <md-list-item md-virtual-repeat="it in pl.users" class="repeated-item" flex>
+                  <md-button ng-click="pl.selectUser(it)" ng-class="{'selected' : it === pl.selected }">
+                    <md-icon md-svg-icon="svg-1" class="avatar"></md-icon>
+                    {{it.Name}}
+                  </md-button>
+              </md-list-item>
+            </md-list>
+          </md-virtual-repeat-container>
         </md-sidenav>
 
         <md-content flex id="content">

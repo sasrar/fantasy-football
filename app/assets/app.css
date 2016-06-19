@@ -37,6 +37,11 @@ md-list-item > button {
     padding: 0px 0px 8px 0px;
   }
 
+  #vertical-container {
+  height: 100%;
+  width: 100%;
+  max-width: 400px;
+}
 
 /* Primary content area */
 
