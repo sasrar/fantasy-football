@@ -14,6 +14,7 @@
    */
   PlayerService.$inject = ['$q', '$http'];
   function PlayerService($q, $http){
+    // TODO: Add capability to get player news when clicking on player name
     var service = {
       getApiKey: getApiKey,
       loadAllPlayers: loadAllPlayers
