@@ -40,7 +40,6 @@ md-list-item > button {
   #vertical-container {
   height: 100%;
   width: 100%;
-  max-width: 400px;
 }
 
 /* Primary content area */

@@ -17,7 +17,8 @@
     var service = {
       getApiKey: getApiKey,
       loadAllPlayers: loadAllPlayers,
-      getPlayerNews: getPlayerNews
+      getPlayerNews: getPlayerNews,
+      getPlayerNewsById: getPlayerNewsById
     };
 
     return service;
@@ -37,7 +38,6 @@
           .then( function( data ) {
             self.key = data.apiKey;
 
-            //return $http.get('https://api.fantasydata.net/nfl/v2/JSON/FantasyPlayers').then(function(response) {
             return $http.get('http://localhost:4567/FantasyPlayers', {headers: {'Ocp-Apim-Subscription-Key': key}})
               .then(function(response) {
                 console.log(response);
@@ -52,8 +52,20 @@
       if (self.key === null){
         getApiKey().then(function(data){
           self.key = data.apiKey;
+
+          return getPlayerNewsById(player.Id);
         });
+      } else {
+        return getPlayerNewsById(player.Id);
       }
+    }
+
+    function getPlayerNewsById(playerId) {
+      return $http.get('http://localhost:4567/PlayerNews', {headers: {'Ocp-Apim-Subscription-Key': key}})
+          .then(function(response) {
+            console.log(response);
+            return response.data;
+          });
     }
   }
 

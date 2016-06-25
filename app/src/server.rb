@@ -19,9 +19,27 @@
   	200
   end
 
+  options '/PlayerNews' do
+    200
+  end
+
   get '/FantasyPlayers' do
     key = env['HTTP_OCP_APIM_SUBSCRIPTION_KEY']
     url = URI.parse('https://api.fantasydata.net/nfl/v2/JSON/FantasyPlayers')
+    http = Net::HTTP.new(url.host, url.port)
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    http.use_ssl = true
+
+    request = Net::HTTP::Get.new(url.request_uri)
+    request.initialize_http_header({"Ocp-Apim-Subscription-Key" => key})
+
+    response = http.request(request)
+    response.body
+  end
+
+  get '/PlayerNews' do
+    key = env['HTTP_OCP_APIM_SUBSCRIPTION_KEY']
+    url = URI.parse('https://api.fantasydata.net/nfl/v2/JSON/NewsByPlayerID/11056')
     http = Net::HTTP.new(url.host, url.port)
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     http.use_ssl = true

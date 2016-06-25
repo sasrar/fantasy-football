@@ -52,6 +52,17 @@
           <h2>{{pl.selected.Name}}</h2>
           <p>{{pl.selected.Position}}</p>
 
+          <md-virtual-repeat-container id="vertical-container">
+            <md-list>
+              <md-list-item md-virtual-repeat="it in pl.news" class="repeated-item" flex>
+                  <md-button ng-click="" ng-class="">
+                    {{it.Title}}
+                    {{it.Content}}
+                  </md-button>
+              </md-list-item>
+            </md-list>
+          </md-virtual-repeat-container>
+
           <md-button class="share" md-no-ink ng-click="pl.makeContact(pl.selected)" aria-label="Share with {{ pl.selected.name }}">
             <md-icon md-svg-icon="share"></md-icon>
           </md-button>

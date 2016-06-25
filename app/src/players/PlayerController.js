@@ -20,6 +20,7 @@
     self.selectPlayer   = selectPlayer;
     self.toggleList   = toggleUsersList;
     self.makeContact  = makeContact;
+    self.news         = null;
 
     playerService
           .loadAllPlayers()
@@ -43,8 +44,14 @@
      * Select the current avatars
      * @param menuId
      */
-    function selectPlayer ( user ) {
-      self.selected = angular.isNumber(user) ? $scope.users[user] : user;
+    function selectPlayer ( player ) {
+      self.selected = angular.isNumber(player) ? $scope.players[player] : player;
+
+      playerService
+        .getPlayerNews(self.selected)
+        .then(function(news) {
+          self.news = [].concat(news);
+        });
     }
 
     /**
