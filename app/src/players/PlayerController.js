@@ -16,17 +16,16 @@
     var self = this;
 
     self.selected     = null;
-    self.users        = [ ];
-    self.selectUser   = selectUser;
+    self.players        = [ ];
+    self.selectPlayer   = selectPlayer;
     self.toggleList   = toggleUsersList;
     self.makeContact  = makeContact;
 
-    // TODO: Load a few players. Then provide endless scrolling/dynamic player loading.
     playerService
           .loadAllPlayers()
-          .then( function( users ) {
-            self.users    = [].concat(users);
-            self.selected = users[0];
+          .then( function( players ) {
+            self.players    = [].concat(players);
+            self.selected = players[0];
           });
 
     // *********************************
@@ -44,7 +43,7 @@
      * Select the current avatars
      * @param menuId
      */
-    function selectUser ( user ) {
+    function selectPlayer ( user ) {
       self.selected = angular.isNumber(user) ? $scope.users[user] : user;
     }
 

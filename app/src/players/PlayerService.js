@@ -14,10 +14,10 @@
    */
   PlayerService.$inject = ['$q', '$http'];
   function PlayerService($q, $http){
-    // TODO: Add capability to get player news when clicking on player name
     var service = {
       getApiKey: getApiKey,
-      loadAllPlayers: loadAllPlayers
+      loadAllPlayers: loadAllPlayers,
+      getPlayerNews: getPlayerNews
     };
 
     return service;
@@ -46,6 +46,14 @@
           });
 
       return promise;
+    }
+
+    function getPlayerNews(player) {
+      if (self.key === null){
+        getApiKey().then(function(data){
+          self.key = data.apiKey;
+        });
+      }
     }
   }
 
