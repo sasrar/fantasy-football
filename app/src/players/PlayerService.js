@@ -52,15 +52,15 @@
         getApiKey().then(function(data){
           self.key = data.apiKey;
 
-          return getPlayerNewsById(player.Id);
+          return getPlayerNewsById(player.PlayerID);
         });
       } else {
-        return getPlayerNewsById(player.Id);
+        return getPlayerNewsById(player.PlayerID);
       }
     }
 
     function getPlayerNewsById(playerId) {
-      return $http.get('http://localhost:4567/PlayerNews', {headers: {'Ocp-Apim-Subscription-Key': key}})
+      return $http.get('http://localhost:4567/PlayerNews?playerId='+playerId, {headers: {'Ocp-Apim-Subscription-Key': key}})
           .then(function(response) {
             console.log(response);
             return response.data;

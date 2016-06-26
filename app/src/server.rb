@@ -39,7 +39,8 @@
 
   get '/PlayerNews' do
     key = env['HTTP_OCP_APIM_SUBSCRIPTION_KEY']
-    url = URI.parse('https://api.fantasydata.net/nfl/v2/JSON/NewsByPlayerID/11056')
+    playerId = params[:playerId]
+    url = URI.parse('https://api.fantasydata.net/nfl/v2/JSON/NewsByPlayerID/'+playerId)
     http = Net::HTTP.new(url.host, url.port)
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     http.use_ssl = true
