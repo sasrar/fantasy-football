@@ -114,6 +114,14 @@ This will find the latest versions that match the version ranges specified in th
 For more information on AngularJS please check out http://angularjs.org/
 For more information on Angular Material, check out https://material.angularjs.org/
 
+## TODOS
+
+```
+* Open player news in new tab when clicking
+* Last player news card not showing up properly
+* Improve color pallette and layout
+```
+
 [git]: http://git-scm.com/
 [bower]: http://bower.io
 [npm]: https://www.npmjs.org/
