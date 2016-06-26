@@ -40,7 +40,6 @@
 
             return $http.get('http://localhost:4567/FantasyPlayers', {headers: {'Ocp-Apim-Subscription-Key': key}})
               .then(function(response) {
-                console.log(response);
                 return response.data;
               });
           });

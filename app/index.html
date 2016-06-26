@@ -55,10 +55,21 @@
           <md-virtual-repeat-container id="vertical-container">
             <md-list>
               <md-list-item md-virtual-repeat="it in pl.news" class="repeated-item" flex>
-                  <md-button ng-click="" ng-class="">
-                    {{it.Title}}
-                    {{it.Content}}
-                  </md-button>
+                <md-card md-theme="dark-orange" md-theme-watch>
+                  <md-card-title>
+                    <md-card-title-text>
+                      <span class="md-headline">{{it.Title}}</span>
+                      <span class="md-subhead">{{it.Content}}</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                      <div class="md-media-lg card-media"></div>
+                    </md-card-title-media>
+                  </md-card-title>
+                  <md-card-actions layout="row" layout-align="end center">
+                    <md-button>Action 1</md-button>
+                    <md-button>Action 2</md-button>
+                  </md-card-actions>
+                </md-card>
               </md-list-item>
             </md-list>
           </md-virtual-repeat-container>
