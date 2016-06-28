@@ -117,9 +117,11 @@ For more information on Angular Material, check out https://material.angularjs.o
 ## TODOS
 
 ```
-* Open player news in new tab when clicking
 * Last player news card not showing up properly
+* Make player news cards clickable and open news link in new tab
 * Improve color pallette and layout
+* Can use anime-js to display animated blocks
+* Add player images
 ```
 
 [git]: http://git-scm.com/
