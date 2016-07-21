@@ -44,6 +44,17 @@ md-list-item > button {
 
 /* Primary content area */
 
+md-card {
+  background-color: rgb(121,85,72);
+  width: 80%;
+  color: white;
+}
+
+md-card.md-default-theme md-card-title md-card-title-text:not(:only-child) .md-subhead, md-card md-card-title md-card-title-text:not(:only-child) .md-subhead
+{
+  color: beige;
+}
+
 #content {
   overflow: hidden;
 }
